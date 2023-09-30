@@ -7,7 +7,7 @@ import TopNavBar from "../components/TopNavBar";
 import WheelComponent from "../components/WheelComponent";
 import axios from "axios";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-
+//Comment
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
