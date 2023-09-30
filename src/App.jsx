@@ -4,7 +4,6 @@ import SignIn from './pages/SignIn'
 import { Router, Routes, BrowserRouter, Route } from 'react-router-dom'
 import SignUp from './pages/SignUp'
 import UserDashboard from './pages/UserDashboard'
-import SpinWheel from './pages/SpinWheel'
 import AdminLayout from './Layout/Layout'
 import NewRequest from './pages/Admin/NewRequest'
 import Completed from './pages/Admin/Completed'
@@ -13,6 +12,7 @@ import SendEmails from './pages/Admin/SendEmails'
 import WaitingForSpin from './pages/Admin/WaitingForSpin'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NewSpin from './pages/SpinWheel2'
 
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
           <Route path='/login' element={<SignIn />} />
           <Route path='/register' element={<SignUp />} />
           <Route path='/' element={<UserDashboard />} />
-          <Route path='/spin' element={<SpinWheel />} />
+          <Route path='/spin' element={<NewSpin />} />
 
           <Route path='admin' element={<AdminLayout />}>
             <Route path='new' element={<NewRequest />} />
