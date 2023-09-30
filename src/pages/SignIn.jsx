@@ -58,7 +58,6 @@ export default function SignIn() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     axios
       .post(`${baseUrl}/auth/login`, formData)
       .then((response) => {
@@ -70,12 +69,17 @@ export default function SignIn() {
           const username = decodedToken.name;
           const email = decodedToken.email;
           const userId = decodedToken._id;
+          const role = decodedToken.role;
           localStorage.setItem("name", username);
           localStorage.setItem("userEmail", email);
           localStorage.setItem("userId", userId);
-
-
-          navigate("/");
+          console.log(role);
+          if(role !== 'admin'){
+            navigate("/");
+          }else{
+            navigate("/admin");
+          }
+          
         }
       })
       .catch((error) => {
