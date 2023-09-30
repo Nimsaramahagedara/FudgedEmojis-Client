@@ -1,7 +1,7 @@
 {
     "services": {
       "web": {
-        "buildCommand": "npm install react-wheel-of-prizes@1.0.9 --force && npm i && npm run build",
+        "buildCommand": "npm i --force && npm run build --force",
         "runCommand": "npm start",
         "env": {
           "NODE_ENV": "production"
