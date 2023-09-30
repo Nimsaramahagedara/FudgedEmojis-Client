@@ -19,25 +19,21 @@ function App() {
 
   return (
     <>
-     <ToastContainer autoClose= {1500} pauseOnFocusLoss={false} pauseOnHover={false}/> 
+      <ToastContainer autoClose={1500} pauseOnFocusLoss={false} pauseOnHover={false} />
       <BrowserRouter >
         <Routes>
+          <Route path='/' element={<UserDashboard />} />
           <Route path='/login' element={<SignIn />} />
           <Route path='/register' element={<SignUp />} />
-          <Route path='/' element={<UserDashboard />} />
           <Route path='/spin' element={<NewSpin />} />
 
-          <Route path='admin' element={<AdminLayout />}>
+          <Route path='/admin' element={<AdminLayout />}>
             <Route path='new' element={<NewRequest />} />
             <Route path='completed' element={<Completed />} />
             <Route path='rejected' element={<Rejected />} />
             <Route path='send' element={<SendEmails />} />
-            <Route path='waiting' element={<WaitingForSpin/>}/>
-
-
+            <Route path='waiting' element={<WaitingForSpin />} />
           </Route>
-
-
         </Routes>
       </BrowserRouter>
 
