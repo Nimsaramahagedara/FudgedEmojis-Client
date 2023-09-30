@@ -1,7 +1,7 @@
 {
     "services": {
       "web": {
-        "buildCommand": "npm install && npm run build",
+        "buildCommand": "npm install --force && npm run build",
         "runCommand": "npm start",
         "env": {
           "NODE_ENV": "production"
