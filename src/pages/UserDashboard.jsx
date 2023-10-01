@@ -4,10 +4,11 @@ import { Button, Typography } from "@mui/material";
 import Request from "../components/Request";
 import CreateRequestFormModal from "../components/CreateRequestFormModal";
 import axios from "../../axios-config";
+import { useNavigate } from "react-router-dom";
 
 const UserDashboard = () => {
   const [shouldRefresh, setShouldRefresh] = useState(false);
-
+  const navigate = useNavigate()
   const handleRequestCreated = () => {
     setShouldRefresh(true);
   };
@@ -15,7 +16,9 @@ const UserDashboard = () => {
   const [requests, setRequests] = useState([]);
   useEffect(() => {
     const email = localStorage.getItem("userEmail");
-
+    if(!email){
+      navigate('/login')
+    }
     axios
       .get(`/request/spinning?email=${email}`)
       .then((res) => {
