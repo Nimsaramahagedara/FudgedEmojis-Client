@@ -13,16 +13,19 @@ import WaitingForSpin from './pages/Admin/WaitingForSpin'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NewSpin from './pages/SpinWheel2'
+import ErrorPage from './pages/ErrorPage'
 
 
 function App() {
+  const baseUrl = import.meta.env.VITE_BASE_URL
 
   return (
     <>
       <ToastContainer autoClose={1500} pauseOnFocusLoss={false} pauseOnHover={false} />
-      <BrowserRouter >
+      <BrowserRouter  basename={baseUrl}>
         <Routes>
           <Route path='/' element={<UserDashboard />} />
+          <Route path='*' element={<ErrorPage />} />
           <Route path='/login' element={<SignIn />} />
           <Route path='/register' element={<SignUp />} />
           <Route path='/spin' element={<NewSpin />} />
