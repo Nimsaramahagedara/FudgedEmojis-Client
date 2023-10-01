@@ -9,6 +9,7 @@ import TopNavBar from "../components/TopNavBar";
 import axios from "axios";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import SpinWheel from "../components/SpinWheel";
+import { toast } from "react-toastify";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -34,7 +35,7 @@ function NewSpin() {
   const queryParams = new URLSearchParams(location.search);
   const id = queryParams.get("id");
   const [value, setValue] = useState(0);
-  const [chances, setChances] = useState("1");
+  const [chances, setChances] = useState(1);
   const segments = [
     {
       color: '#db7093',
@@ -106,14 +107,14 @@ function NewSpin() {
 
   ];
   const spinOutput = (winner) => {
-    console.log(winner);
-    setChances("0");
+    toast.success('Congratulations !! You Won '+ winner + '%' + ' Voucher From Fudged');
+    setChances(0);
     saveResultToDatabase(winner, "Amazon");
 
   };
   const spinOutput2 = (winner) => {
-    console.log(winner);
-    setChances("0");
+    toast.success('Congratulations !! You Won '+ winner + '%' + ' Voucher From Fudged');
+    setChances(0);
     saveResultToDatabase(winner, "Shopify");
 
   };
@@ -165,10 +166,10 @@ function NewSpin() {
         <Tab label="Shopify" />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <SpinWheel segments={segments} spinOutput={spinOutput} />
+        <SpinWheel segments={segments} spinOutput={spinOutput} chances={chances}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <SpinWheel segments={segments2} spinOutput={spinOutput2} />
+        <SpinWheel segments={segments2} spinOutput={spinOutput2} chances={chances}/>
       </TabPanel>
     </>
   );

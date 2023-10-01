@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './style.css'
-const SpinWheel = ({ segments, spinOutput }) => {
+const SpinWheel = ({ segments, spinOutput, chances }) => {
     // const segments = [
     //     {
     //         color: '#db7093',
@@ -52,7 +52,7 @@ const SpinWheel = ({ segments, spinOutput }) => {
     return (
         <>
             <div className='spin_container'>
-                <div className='spinBtn' onClick={rotateWheel}>SPIN</div>
+                <button className='spinBtn' onClick={rotateWheel} disabled={chances === 0 ? true : false}>SPIN</button>
                 <div className="wheel" style={{ transform: `rotate(${rotationAngle}deg)` }}>
                     {
                         segments.length == 8 ? (
