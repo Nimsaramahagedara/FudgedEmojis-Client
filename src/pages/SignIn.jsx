@@ -15,7 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CustomTheme from "../components/CustomTheme";
 import logo from "../assets/logo.png";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "../../axios-config";
 import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
 import { FormControl, InputLabel, Select } from "@mui/material";
@@ -50,7 +50,6 @@ export default function SignIn() {
     password: "", 
     role: "user",
   });
-  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -60,7 +59,7 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(`${baseUrl}/auth/login`, formData)
+      .post(`/auth/login`, formData)
       .then((response) => {
         if (response) {
           localStorage.setItem("token", response.data.token);
@@ -74,7 +73,7 @@ export default function SignIn() {
           localStorage.setItem("name", username);
           localStorage.setItem("userEmail", email);
           localStorage.setItem("userId", userId);
-          console.log(role);
+
           if(role !== 'admin'){
             navigate("/");
           }else{
@@ -147,7 +146,7 @@ export default function SignIn() {
               onChange={handleChange}
               autoComplete="current-password"
             />
-            <FormControl fullWidth>
+            {/* <FormControl fullWidth>
               <InputLabel htmlFor="role">User Role</InputLabel>
               <Select
                 required
@@ -162,7 +161,7 @@ export default function SignIn() {
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
               </Select>
-            </FormControl>
+            </FormControl> */}
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
