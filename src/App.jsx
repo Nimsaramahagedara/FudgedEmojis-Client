@@ -17,12 +17,10 @@ import ErrorPage from './pages/ErrorPage'
 
 
 function App() {
-  const baseUrl = import.meta.env.VITE_BASE_URL
-
   return (
     <>
       <ToastContainer autoClose={1500} pauseOnFocusLoss={false} pauseOnHover={false} />
-      <BrowserRouter  basename={baseUrl}>
+      <BrowserRouter  basename={'/'}>
         <Routes>
           <Route path='/' element={<UserDashboard />} />
           <Route path='*' element={<ErrorPage />} />
