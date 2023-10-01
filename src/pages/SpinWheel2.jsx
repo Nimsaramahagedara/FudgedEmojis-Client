@@ -10,7 +10,7 @@ import axios from "../../axios-config";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import SpinWheel from "../components/SpinWheel";
 import { toast } from "react-toastify";
-import footerImg from '../assets/footer.png'
+import footerImg from '../assets/Footer.png'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
