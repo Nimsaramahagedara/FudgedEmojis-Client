@@ -12,6 +12,8 @@ import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { useNavigate } from 'react-router-dom';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
 
 const MenuAppBar = ()=> {
   const navigate = useNavigate()
@@ -37,31 +39,18 @@ const MenuAppBar = ()=> {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      {/* <FormGroup>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={auth}
-              onChange={handleChange}
-              aria-label="login switch"
-            />
-          }
-          label={auth ? 'Logout' : 'Login'}
-        />
-      </FormGroup> */}
       <AppBar position="static" sx={{ background: 'white', color: 'black', boxShadow: 'none' }} >
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
+            sx={{padding:'10px'}}
           >
-            <MenuIcon />
+            <AlignHorizontalLeftIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Dashboard
+          <Typography variant="subtitle1" sx={{ flexGrow: 1 }}>
+          
           </Typography>
           {auth && (
             <div>
@@ -73,7 +62,7 @@ const MenuAppBar = ()=> {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                <MoreVertIcon />
               </IconButton>
               <Menu
                 id="menu-appbar"
