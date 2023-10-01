@@ -21,12 +21,12 @@ const Request = ({ id, status, receipt, name, date }) => {
     >
       <div >
         <Typography.Title level={5}>Receipt No: {receipt}</Typography.Title>
-        <Typography.Paragraph>User Name: {name}</Typography.Paragraph>
+        {/* <Typography.Paragraph>User Name: {name}</Typography.Paragraph> */}
         {status === 0 ? (
-          <p style={{ color: "red" }}>Under Review</p>
+          <p style={{ color: "red" }}>Under Review 😇</p>
         ) : status === 1 ? (
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <p style={{ color: "green" }}>Approved</p>
+            <p style={{ color: "green" }}>Approved 😃</p>
             <Button
               type="primary"
               onClick={() => handleSpinClick(id)}

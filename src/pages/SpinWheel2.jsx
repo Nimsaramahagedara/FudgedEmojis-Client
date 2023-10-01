@@ -10,6 +10,7 @@ import axios from "../../axios-config";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import SpinWheel from "../components/SpinWheel";
 import { toast } from "react-toastify";
+import footerImg from '../assets/footer.png'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -74,48 +75,42 @@ function NewSpin() {
   const segments2 = [
     {
       color: '#db7093',
-      value: '100'
+      value: '105'
     },
     {
       color: '#20b2aa',
-      value: '95'
+      value: '104'
     },
     {
       color: '#d63e92',
-      value: '90'
+      value: '103'
     },
     {
       color: '#daa520',
-      value: '85'
+      value: '102'
     },
     {
       color: '#ff340f',
-      value: '80'
+      value: '101'
     },
     {
       color: '#ff7f50',
-      value: '75'
+      value: '100'
     },
     {
       color: '#3cb371',
-      value: '70'
+      value: '99'
     },
     {
       color: '#4169e1',
-      value: '65'
+      value: '98'
     }
 
   ];
   const spinOutput = (winner) => {
-    toast.success('Congratulations !! You Won '+ winner + '%' + ' Voucher From Fudged');
+    toast.success('Congratulations 🎉🎉!! You Won '+ winner + '%' + ' Voucher From Fudged');
     setChances(0);
     saveResultToDatabase(winner, "Amazon");
-
-  };
-  const spinOutput2 = (winner) => {
-    toast.success('Congratulations !! You Won '+ winner + '%' + ' Voucher From Fudged');
-    setChances(0);
-    saveResultToDatabase(winner, "Shopify");
 
   };
   const baseUrl = import.meta.env.VITE_BASE_URL;
@@ -164,8 +159,11 @@ function NewSpin() {
         <SpinWheel segments={segments} spinOutput={spinOutput} chances={chances}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <SpinWheel segments={segments2} spinOutput={spinOutput2} chances={chances}/>
+        <SpinWheel segments={segments2} spinOutput={spinOutput} chances={chances}/>
       </TabPanel>
+      <div className="w-full bottom-0 left-0">
+        <img src={footerImg} className="w-full h-full object-contain"/>
+      </div>
     </>
   );
 }

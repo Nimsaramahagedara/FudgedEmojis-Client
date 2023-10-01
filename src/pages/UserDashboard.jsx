@@ -7,28 +7,50 @@ import axios from "../../axios-config";
 import { useNavigate } from "react-router-dom";
 import WelcomeComponent from "../components/WelcomeComponent";
 import ImageCarousel from "../components/CarosolComponent";
-import { Typography as Type} from 'antd';
-
-
+import { Typography as Type } from 'antd';
+import image65 from '../assets/65.png'
+import image33 from '../assets/33.png'
+import spin from '../assets/spin.png'
 const UserDashboard = () => {
   const [shouldRefresh, setShouldRefresh] = useState(false);
-  const [user , setUser] = useState('')
+  const [user, setUser] = useState('')
   const navigate = useNavigate()
   const handleRequestCreated = () => {
     setShouldRefresh(true);
   };
-  const images = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu72w0KIpsoXd_QDqZs63cI6Y6SFWvZT_89g&usqp=CAU",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu72w0KIpsoXd_QDqZs63cI6Y6SFWvZT_89g&usqp=CAU",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu72w0KIpsoXd_QDqZs63cI6Y6SFWvZT_89g&usqp=CAU",
-  ];
+  const compoContent = [
+    {
+      title:`Wanna Get Discounts`,
+      secondLine:'on Next Order ?',
+      sub:'Submit Your Last Order Details To Us',
+      para:'Upto 105% On Amount',
+      bgColor: '#00C853',
+      bgImage: image65
+    },
+    {
+      title:`Wait For Our`,
+      secondLine:'Admin Approval',
+      sub:'Wait till we verify your details',
+      para:'Amazon | Shopify Vouchers',
+      bgColor: '#FF6443',
+      bgImage: image33
+    },
+    {
+      title:`Spin the Wheel`,
+      secondLine:'To Get Discount',
+      sub:'Spin the Wheel and get your Voucher',
+      para:'Check your email',
+      bgColor: '#43BDFF',
+      bgImage: spin
+    }
+  ]
 
   const [requests, setRequests] = useState([]);
   useEffect(() => {
     const email = localStorage.getItem("userEmail");
     const name = localStorage.getItem('name')
     setUser(name)
-    if(!email){
+    if (!email) {
       navigate('/login')
     }
     axios
@@ -46,25 +68,26 @@ const UserDashboard = () => {
   return (
     <div className="bg-gray-100">
       <MenuAppBar />
-    {/* <ImageCarousel images={images}/> */}
-    <div className="p-3 ">
-      <Typography variant="subtitle2" className="p-3 text-green-600">Hello {user}, Have a Nice Day !</Typography>
+      <div className="p-3 ">
+        <Typography variant="subtitle2" className="py-3 text-green-600">Hello {user}, Have a Nice Day !</Typography>
+        <ImageCarousel components={compoContent}/>
 
-      <WelcomeComponent name={'Nimsara'}/>
-    <br/>
-      <Type.Text type="secondary">Submitted Requests</Type.Text>
-      <Stack spacing={2}>
-        {requests.map((request) => (
-          <Request
-            key={request._id}
-            status={request.status}
-            id={request._id}
-            receipt={request.receiptNo}
-            name={request.spinBy}
-            date={request.createdAt}
-          />
-        ))}
+        <br />
+        <Type.Text type="secondary" className="mb-2">Submitted Requests</Type.Text>
+        <div className="my-2">
+        <Stack spacing={2}>
+          {requests.map((request) => (
+            <Request
+              key={request._id}
+              status={request.status}
+              id={request._id}
+              receipt={request.receiptNo}
+              name={request.spinBy}
+              date={request.createdAt}
+            />
+          ))}
         </Stack>
+        </div>
       </div>
       <CreateRequestFormModal onRequestCreated={handleRequestCreated} />
     </div>
