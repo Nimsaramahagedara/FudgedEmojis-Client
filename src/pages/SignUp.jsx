@@ -17,6 +17,7 @@ import logo from "../assets/logo.png";
 import axios from "../../axios-config";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { FormControl, InputLabel, Select } from "@mui/material";
+import { toast } from "react-toastify";
 
 function Copyright(props) {
   return (
@@ -63,11 +64,11 @@ export default function SignUp() {
     axios
       .post(`/auth/register`, formData)
       .then((res) => {
-        alert("Register Successfully");
+        toast.success('Registration Success!')
         navigate("/login");
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err)
       });
   };
 
