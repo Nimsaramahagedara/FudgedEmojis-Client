@@ -4,9 +4,11 @@ import { Button, Typography } from "@mui/material";
 import Request from "../components/Request";
 import CreateRequestFormModal from "../components/CreateRequestFormModal";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const UserDashboard = () => {
   const baseUrl = import.meta.env.VITE_BASE_URL;
+  const navigate = useNavigate()
   const accessToken = localStorage.getItem("token");
   const [shouldRefresh, setShouldRefresh] = useState(false);
 
@@ -19,7 +21,9 @@ const UserDashboard = () => {
   const [requests, setRequests] = useState([]);
   useEffect(() => {
     const email = localStorage.getItem('userEmail')
-   console.log(email) 
+    if(!email){
+      navigate('/login')
+    }
     const config = {
       headers: {
         Authorization: `Bearer ${accessToken}`,
