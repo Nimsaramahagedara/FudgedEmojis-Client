@@ -22,7 +22,6 @@ const ReviewModal = ({ data, isOpen, onOk, onCancel, onReject }) => {
                     </Button>,
                     <Button
                         key="link"
-                        href="#"
                         type="primary"
                         loading={loading}
                         onClick={() => onReject(data._id)}
