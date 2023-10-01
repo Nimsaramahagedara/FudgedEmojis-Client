@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {
-  MenuFoldOutlined,
+  MenuFoldOutlined, FilePdfOutlined,
   MenuUnfoldOutlined, AppstoreOutlined, SnippetsOutlined, WarningOutlined, CheckSquareOutlined, BarChartOutlined, UserOutlined, ExclamationCircleOutlined
 } from '@ant-design/icons';
+
 import { Breadcrumb, Layout, Menu, Button } from 'antd';
 import { Outlet, Link } from 'react-router-dom';
 import { Footer } from 'antd/es/layout/layout';
@@ -51,6 +52,12 @@ const items = [
     icon: React.createElement(WarningOutlined),
     label: 'Rejected',
     to:'admin/rejected',
+  },
+  {
+    key: 'sub5',
+    icon: React.createElement(FilePdfOutlined),
+    label: 'Generate Report',
+    to:'admin/report',
   }
 
 ];

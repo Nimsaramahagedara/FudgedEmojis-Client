@@ -14,6 +14,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NewSpin from './pages/SpinWheel2';
 import ErrorPage from './pages/ErrorPage';
+import Report from './pages/Report';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="rejected" element={<Rejected />} />
             <Route path="send" element={<SendEmails />} />
             <Route path="waiting" element={<WaitingForSpin />} />
+            <Route path="report" element={<Report />} />
           </Route>
         </Routes>
       </Router>
