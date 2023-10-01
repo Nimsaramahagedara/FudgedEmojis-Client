@@ -1,29 +1,20 @@
 import Title from "antd/es/typography/Title";
 import React, { useEffect, useState } from "react";
 import { Space, Table, Tag } from "antd";
-import axios from "axios";
+import axios from "../../../axios-config";
 import moment from "moment";
 import { toast } from "react-toastify";
 import ReviewModal from "../../components/ReviewModel";
 
 const NewRequest = () => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
-  const accessToken = localStorage.getItem("token");
-
   const [newRequests, setNewRequests] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRequestId, setSelectedRequestId] = useState(null);
   const [selectedRequestData, setSelectedRequestData] = useState(null);
 
   useEffect(() => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-    };
     axios
-      .get(`${baseUrl}/request/all`, config)
+      .get("/request/all")
       .then((res) => {
         setNewRequests(res.data);
       })
@@ -82,17 +73,12 @@ const NewRequest = () => {
   };
   const handleReject = (id) => {
     const requestId = id;
-    const config = {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-    };
+ 
     const data = {
       status: 9,
     };
     axios
-      .put(`${baseUrl}/request/update/${requestId}`, data, config)
+      .put(`/request/update/${requestId}`, data)
       .then((res) => {
         toast.success("Request rejected successfully");
 
@@ -114,18 +100,10 @@ const NewRequest = () => {
 
   const handleReview = (id) => {
     setSelectedRequestId(id);
-
-    const config = {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-    };
     axios
-      .get(`${baseUrl}/request/getOne/${id}`, config)
+      .get(`/request/getOne/${id}`)
       .then((res) => {
         setSelectedRequestData(res.data);
-        console.log(res.data);
         showModal();
       })
       .catch((err) => {
@@ -140,20 +118,13 @@ const NewRequest = () => {
       let requestId = selectedRequestId;
       const approveDate = new Date();
 
-      const config = {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
-      };
-
       const data = {
         status: 1,
         approvedDate: approveDate.toISOString(),
       };
 
       axios
-        .put(`${baseUrl}/request/update/${requestId}`, data, config)
+        .put(`/request/update/${requestId}`, data)
         .then((res) => {
           
           toast.success("Request Approved successfully");

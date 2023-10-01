@@ -3,38 +3,24 @@ import MenuAppBar from "../components/AppBar";
 import { Button, Typography } from "@mui/material";
 import Request from "../components/Request";
 import CreateRequestFormModal from "../components/CreateRequestFormModal";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import axios from "../../axios-config";
 
 const UserDashboard = () => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
-  const navigate = useNavigate()
-  const accessToken = localStorage.getItem("token");
   const [shouldRefresh, setShouldRefresh] = useState(false);
-
 
   const handleRequestCreated = () => {
     setShouldRefresh(true);
   };
 
-
   const [requests, setRequests] = useState([]);
   useEffect(() => {
-    const email = localStorage.getItem('userEmail')
-    if(!email){
-      navigate('/login')
-    }
-    const config = {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-    };
+    const email = localStorage.getItem("userEmail");
+
     axios
-      .get(`${baseUrl}/request/spinning?email=${email}`, config)
+      .get(`/request/spinning?email=${email}`)
       .then((res) => {
         setRequests(res.data);
-        
+
         setShouldRefresh(false);
       })
       .catch((err) => {
@@ -65,11 +51,11 @@ const UserDashboard = () => {
             id={request._id}
             receipt={request.receiptNo}
             name={request.spinBy}
-            date = {request.createdAt}
+            date={request.createdAt}
           />
         ))}
       </div>
-      <CreateRequestFormModal onRequestCreated={handleRequestCreated}/>
+      <CreateRequestFormModal onRequestCreated={handleRequestCreated} />
     </div>
   );
 };

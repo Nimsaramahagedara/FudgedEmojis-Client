@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { TextField } from "@mui/material";
-import axios from "axios";
+import axios from "../../axios-config";
 import { toast } from "react-toastify";
 
 const style = {
@@ -27,17 +27,15 @@ export default function CreateRequestFormModal({ onRequestCreated }) {
   const [error, setError] = useState(null);
   const [confirmLoading, setConfirmLoading] = useState(false);
 
-  const baseUrl = import.meta.env.VITE_BASE_URL;
-  const accessToken = localStorage.getItem("token");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setConfirmLoading(true);
     setError(null);
-    // Here, you can handle form submission, e.g., sending data to the server
+
     const spinBy = localStorage.getItem("name");
     const userEmail = localStorage.getItem("userEmail");
-    console.log(userEmail);
+
 
     const formData = new FormData();
     formData.append("receiptNo", billNumber);
@@ -46,19 +44,13 @@ export default function CreateRequestFormModal({ onRequestCreated }) {
     formData.append("spinBy", spinBy);
     formData.append("createdUser", userEmail);
 
-    const config = {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "multipart/form-data",
-      },
-    };
 
     axios
-      .post(`${baseUrl}/request/add`, formData, config)
+      .post("/request/add", formData)
       .then((res) => {
         setConfirmLoading(false);
 
-        if (res.status === 200) {
+        if (res.data) {
           toast.success("Successfully saved request");
           onRequestCreated();
           // Reset the form
@@ -85,7 +77,6 @@ export default function CreateRequestFormModal({ onRequestCreated }) {
 
   const handleBillScreenshotChange = (e) => {
     const file = e.target.files[0];
-    console.log(file);
     setBillScreenshot(file);
   };
 
@@ -93,7 +84,6 @@ export default function CreateRequestFormModal({ onRequestCreated }) {
     setBillAmount(e.target.value);
   };
   const handleClose = () => {
-    console.log("Closing modal");
     setOpen(false);
     setError(null);
   };

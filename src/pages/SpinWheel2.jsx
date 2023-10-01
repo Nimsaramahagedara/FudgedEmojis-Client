@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import TopNavBar from "../components/TopNavBar";
 //import WheelComponent from "../components/WheelComponent";
 
-import axios from "axios";
+import axios from "../../axios-config";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import SpinWheel from "../components/SpinWheel";
 import { toast } from "react-toastify";
@@ -123,19 +123,14 @@ function NewSpin() {
 
   const saveResultToDatabase = (result, selectedTab) => {
     const parsedResult = parseInt(result, 10);
-    const config = {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-    };
+  
     const data = {
       spinnerResult: parsedResult,
       voucherType: selectedTab,
     };
 
     axios
-      .put(`${baseUrl}/request/addresult/${id}`, data, config)
+      .put(`/request/addresult/${id}`, data)
       .then((response) => {
 
         navigate("/");
