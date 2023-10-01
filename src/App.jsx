@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <ToastContainer autoClose={1500} pauseOnFocusLoss={false} pauseOnHover={false} />
-      <BrowserRouter  basename={'/'}>
+      <BrowserRouter basename={'/'}>
         <Routes>
           <Route path='/' element={<UserDashboard />} />
           <Route path='*' element={<ErrorPage />} />
