@@ -15,6 +15,9 @@ const Request = ({ id, status, receipt, name, date,image }) => {
 
   return (
     <Card
+      hoverable
+      
+      bordered
       style={{
         width: "100%",
         alignItems: "center", // Center content vertically
@@ -23,7 +26,7 @@ const Request = ({ id, status, receipt, name, date,image }) => {
       bodyStyle={{
         padding:'0'
       }}
-      className="border-solid border-2 border-sky-100 bg-white"
+      className="border-solid border-2 "
     >
       <div className="flex items-center">
       {/* Left-side image */}
