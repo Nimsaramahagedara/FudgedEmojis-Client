@@ -79,7 +79,7 @@ const MenuAppBar = ()=> {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                {/* <MenuItem onClick={handleClose}>Profile</MenuItem> */}
                 <MenuItem onClick={handleLogOut}>Log Out</MenuItem>
               </Menu>
             </div>

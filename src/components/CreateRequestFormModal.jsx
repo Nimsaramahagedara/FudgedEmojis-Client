@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -6,6 +6,7 @@ import Modal from "@mui/material/Modal";
 import { TextField } from "@mui/material";
 import axios from "../../axios-config";
 import { toast } from "react-toastify";
+import BottomNavigationBar from "./BottomNavigation";
 
 const style = {
   color: "black",
@@ -18,7 +19,7 @@ const style = {
   p: 4,
 };
 
-export default function CreateRequestFormModal({ onRequestCreated }) {
+export default function CreateRequestFormModal({ onRequestCreated}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const [billNumber, setBillNumber] = useState("");
@@ -26,7 +27,6 @@ export default function CreateRequestFormModal({ onRequestCreated }) {
   const [billAmount, setBillAmount] = useState("");
   const [error, setError] = useState(null);
   const [confirmLoading, setConfirmLoading] = useState(false);
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -90,7 +90,7 @@ export default function CreateRequestFormModal({ onRequestCreated }) {
 
   return (
     <div>
-      <Button
+      {/* <Button
         onClick={handleOpen}
         variant="outlined"
         color="success"
@@ -101,7 +101,8 @@ export default function CreateRequestFormModal({ onRequestCreated }) {
         }}
       >
         Get New Voucher
-      </Button>
+      </Button> */}
+      <BottomNavigationBar middleButton={()=>handleOpen()}/>
       <Modal
         open={open}
         onClose={handleClose}
