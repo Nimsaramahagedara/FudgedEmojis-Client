@@ -23,8 +23,9 @@ const Request = ({ id, status, receipt, name, date,image }) => {
       bodyStyle={{
         padding:'0'
       }}
+      className="border-solid border-2 border-sky-100 bg-white"
     >
-      <div className="flex ">
+      <div className="flex items-center">
       {/* Left-side image */}
       <div className="mr-2 w-1/4 overflow-hidden p-2 bg-gray-100" style={{height:'100px'}}>
         <Image
@@ -36,10 +37,10 @@ const Request = ({ id, status, receipt, name, date,image }) => {
 
       {/* Right-side content */}
       <div style={{ flex: 1 }}>
-        <Typography.Title level={5}>Receipt No: {receipt}</Typography.Title>
+        <Typography.Title level={5}>Bill No: {receipt}</Typography.Title>
         {/* User Name: {name} */}
         {status === 0 ? (
-          <p style={{ color: "red" }}>Under Review 😇</p>
+          <Typography.Text type="danger">Under Review 😇</Typography.Text>
         ) : status === 1 ? (
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <p style={{ color: "green" }}>Approved 😃</p>
@@ -54,7 +55,7 @@ const Request = ({ id, status, receipt, name, date,image }) => {
             </Button>
           </div>
         ) : null}
-
+        <br/>
         <Typography.Text type="secondary" className="mb-0">
           {formattedDate}
         </Typography.Text>
