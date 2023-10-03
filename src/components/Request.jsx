@@ -34,6 +34,10 @@ const Request = ({ id, status, receipt, name, date,image }) => {
         <Image
           width={'100%'} // Set the width of the image as per your requirements
           src={image}
+          style={{
+            maxHeight:'55px'
+          }}
+          
           className="object-contain w-full h-full"
         />
       </div>

@@ -139,7 +139,7 @@ const WaitingForSpin = () => {
         Waiting For Spin Result
       </Title>
       <hr className="my-4" />
-      <Table dataSource={sendRequestWithKeys} columns={columns} className="overflow-x-auto"/>
+      <Table dataSource={sendRequestWithKeys} columns={columns} className="overflow-x-auto" pagination={{ pageSize: 5 }}/>
     </div>
   );
 };

@@ -126,6 +126,7 @@ export default function CreateRequestFormModal({ onRequestCreated}) {
             />
             <input
               type="file"
+              required
               name="imgFile"
               accept="image/*"
               onChange={handleBillScreenshotChange}

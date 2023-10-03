@@ -87,11 +87,11 @@ const Rejected = () => {
   ];
 
   return (
-    <div className='overflow-scroll'>
+    <div>
       <Title level={3} className='text-center my-3'>Rejected</Title>
       <hr className='my-4' />
       <Segmented options={['All','Daily', 'Weekly', 'Monthly', 'Yearly']} />
-      <Table dataSource={sendRequestWithKeys} columns={columns} className="overflow-x-auto"/>
+      <Table dataSource={sendRequestWithKeys} columns={columns} className="overflow-x-auto" pagination={{ pageSize: 5 }}/>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import Title from "antd/es/typography/Title";
 import React, { useEffect, useState } from "react";
-import { Space, Table, Tag } from "antd";
+import { Image, Space, Table, Tag } from "antd";
 import axios from "../../../axios-config";
 import moment from "moment";
 import { toast } from "react-toastify";
@@ -11,6 +11,14 @@ const NewRequest = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRequestId, setSelectedRequestId] = useState(null);
   const [selectedRequestData, setSelectedRequestData] = useState(null);
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+
+
+  const onSelectChange = (newSelectedRowKeys) => {
+    console.log('selectedRowKeys changed: ', newSelectedRowKeys);
+    setSelectedRowKeys(newSelectedRowKeys);
+  };
+
 
   useEffect(() => {
     axios
@@ -51,7 +59,7 @@ const NewRequest = () => {
       dataIndex: "imgUrl",
       key: "screenshot",
       render: (text) => (
-        <img src={text} alt="Screenshot" style={{ maxWidth: "50px" }} />
+        <Image src={text} alt="Screenshot" style={{ maxWidth: "50px", maxHeight:'50px' }} />
       ),
     },
     {
@@ -161,7 +169,10 @@ const NewRequest = () => {
         Recent Requests
       </Title>
       <hr className="my-4" />
-      <Table dataSource={sendRequestWithKeys} columns={columns} className="overflow-x-auto"/>
+      <div className="w-full h-full">
+      <Table dataSource={sendRequestWithKeys} columns={columns} className="overflow-auto" pagination={{ pageSize: 5 }}/>
+      </div>
+      
     </div>
   );
 };

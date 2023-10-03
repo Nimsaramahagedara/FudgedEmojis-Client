@@ -70,7 +70,7 @@ const Completed = () => {
   ];
 
   return (
-    <div className="overflow-scroll">
+    <div >
       <Title level={3} className="text-center my-3">
         Completed
       </Title>
@@ -80,6 +80,7 @@ const Completed = () => {
         dataSource={sendRequestWithKeys}
         columns={columns}
         className="overflow-x-auto"
+        pagination={{ pageSize: 5 }}
       />
     </div>
   );
