@@ -21,12 +21,14 @@ const Request = ({ id, status, receipt, name, date,image }) => {
         width: "100%",
         alignItems: "center", // Center content vertically
         padding: "12px", // Add some padding for spacing
+        boxShadow:'unset'
       }}
       bodyStyle={{
         padding:'0'
       }}
-      className="bg-gradient-to-r from-teal-500 to-indigo-500"
+      className="bg-sky-700 shadow-2xl"
     >
+      {/**bg-gradient-to-r from-sky-500 to-sky-800 */}
       <div className="flex items-center">
       {/* Left-side image */}
       <div className="mr-2 w-1/4 overflow-hidden p-3 rounded-full border-2  bg-gray-100">
@@ -43,10 +45,10 @@ const Request = ({ id, status, receipt, name, date,image }) => {
 
       {/* Right-side content */}
       <div style={{ flex: 1 }}>
-        <Typography.Title level={5}>Bill No: {receipt}</Typography.Title>
+        <Typography.Text className="text-white"><b>Bill No: </b>{receipt}</Typography.Text><br/>
         {/* User Name: {name} */}
         {status === 0 ? (
-          <Typography.Text type="danger">Under Review 😇</Typography.Text>
+          <Typography.Text className="text-red-500">Under Review 😇</Typography.Text>
         ) : status === 1 ? (
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <p style={{ color: "green" }}>Approved 😃</p>

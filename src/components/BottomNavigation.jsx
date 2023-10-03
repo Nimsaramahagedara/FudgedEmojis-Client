@@ -50,9 +50,10 @@ export default function BottomNavigationBar({middleButton}) {
           </ListItem>
         ))}
       </List> */}
-      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 , background:'linear'}} elevation={3} className='bg-gradient-to-r from-sky-300 to-sky-500'>
         <BottomNavigation
           value={value}
+          sx={{background:'unset'}}
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
