@@ -16,6 +16,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import CreateRequestFormModal from './CreateRequestFormModal';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { MoodBadOutlined, MoodOutlined } from '@mui/icons-material';
 
 export default function BottomNavigationBar({middleButton}) {
   const [value, setValue] = useState(1);
@@ -56,7 +57,7 @@ export default function BottomNavigationBar({middleButton}) {
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+          <BottomNavigationAction label="Happy" icon={<MoodOutlined />} />
 
           <BottomNavigationAction
             label="Add New"
@@ -64,7 +65,7 @@ export default function BottomNavigationBar({middleButton}) {
             onClick={middleButton}
           />
 
-          <BottomNavigationAction label="Archive" icon={<ArchiveIcon />} />
+          <BottomNavigationAction label="Sad" icon={<MoodBadOutlined />} />
         </BottomNavigation>
       </Paper>
     </Box>

@@ -1,6 +1,6 @@
 import Title from 'antd/es/typography/Title'
 import React, { useEffect, useState } from 'react'
-import { Space, Table, Tag } from 'antd';
+import { Segmented, Space, Table, Tag } from 'antd';
 import axios from "../../../axios-config";
 import moment from 'moment';
 
@@ -87,9 +87,10 @@ const Rejected = () => {
   ];
 
   return (
-    <div>
+    <div className='overflow-scroll'>
       <Title level={3} className='text-center my-3'>Rejected</Title>
       <hr className='my-4' />
+      <Segmented options={['All','Daily', 'Weekly', 'Monthly', 'Yearly']} />
       <Table dataSource={sendRequestWithKeys} columns={columns} className="overflow-x-auto"/>
     </div>
   )

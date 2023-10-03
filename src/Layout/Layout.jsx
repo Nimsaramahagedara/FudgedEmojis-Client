@@ -52,12 +52,6 @@ const items = [
     icon: React.createElement(WarningOutlined),
     label: 'Rejected',
     to:'admin/rejected',
-  },
-  {
-    key: 'sub5',
-    icon: React.createElement(FilePdfOutlined),
-    label: 'Generate Report',
-    to:'admin/report',
   }
 
 ];

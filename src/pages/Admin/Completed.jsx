@@ -1,16 +1,22 @@
 import Title from "antd/es/typography/Title";
 import React, { useEffect, useState } from "react";
-import { Space, Table, Tag } from "antd";
+import { Segmented, Space, Table, Tag } from "antd";
 import axios from "../../../axios-config";
 import moment from "moment";
 
 const Completed = () => {
   const [request, setRequest] = useState([]);
+
+  const handleFilter = (value)=>{
+    console.log(value);
+  }
+
   useEffect(() => {
     axios
       .get(`/request/completed`)
       .then((res) => {
         setRequest(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -64,11 +70,12 @@ const Completed = () => {
   ];
 
   return (
-    <div>
+    <div className="overflow-scroll">
       <Title level={3} className="text-center my-3">
         Completed
       </Title>
       <hr className="my-4" />
+      <Segmented options={['All','Daily', 'Weekly', 'Monthly', 'Yearly']} onChange={handleFilter} />
       <Table
         dataSource={sendRequestWithKeys}
         columns={columns}

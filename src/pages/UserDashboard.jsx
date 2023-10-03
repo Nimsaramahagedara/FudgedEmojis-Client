@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Alert, Badge, Button, Empty, Rate, Typography as Type } from 'antd';
 import banner from '../assets/Banner.png'
 import waitingImg from '../assets/waiting.svg'
-
+import bgImg from '../assets/bg.svg'
 const UserDashboard = () => {
   const [shouldRefresh, setShouldRefresh] = useState(false);
   const [user, setUser] = useState('')
@@ -45,8 +45,12 @@ const UserDashboard = () => {
 
   return (
     <>
+    <div className="bg-blue-500" style={{height:'300px'}}>
+    <img src={bgImg} className="absolute w-full" style={{top:'298px'}}/>
+    </div>
+    <div className="absolute top-0 w-full">
       <MenuAppBar />
-      <div className="p-3 flex flex-col bg-white">
+      <div className="p-3 flex flex-col bg-transparent">
         {
           visible && <Alert message={`Hello ${user}, Have a Nice Day!`} type="success" closable afterClose={handleClose} className="mb-2" />
         }
@@ -59,8 +63,8 @@ const UserDashboard = () => {
             </div>
           </Badge.Ribbon>
           <hr />
-          <Type.Title level={5} className="px-1 mt-0">Fudged Emoji - The Ultimate Collection of Playful and Creative Icons</Type.Title>
-          <Rate disabled defaultValue={5} />
+          <Type.Title level={5} className="px-1 mt-0 text-white" color="white">Fudged Emoji - The Ultimate Collection of Playful and Creative Icons</Type.Title>
+          <Rate disabled defaultValue={5}  />
         </div>
         <br/>
         <Type.Text type="secondary" className="mb-1">Submitted Requests</Type.Text>
@@ -104,6 +108,7 @@ const UserDashboard = () => {
       </div>
       <CreateRequestFormModal onRequestCreated={handleRequestCreated} />
       {/* <BottomNavigationBar setIsModalOpen={setModalOpen}/> */}
+      </div>
     </>
   );
 };
