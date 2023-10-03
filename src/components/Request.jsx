@@ -15,9 +15,8 @@ const Request = ({ id, status, receipt, name, date,image }) => {
 
   return (
     <Card
+      bordered={false}
       hoverable
-      
-      bordered
       style={{
         width: "100%",
         alignItems: "center", // Center content vertically
@@ -26,11 +25,11 @@ const Request = ({ id, status, receipt, name, date,image }) => {
       bodyStyle={{
         padding:'0'
       }}
-      className="shadow-md"
+      className="bg-gradient-to-r from-teal-500 to-indigo-500"
     >
       <div className="flex items-center">
       {/* Left-side image */}
-      <div className="mr-2 w-1/4 overflow-hidden p-3 bg-gray-100 rounded-full border-2 border-gray-100 ">
+      <div className="mr-2 w-1/4 overflow-hidden p-3 rounded-full border-2  bg-gray-100">
         <Image
           width={'100%'} // Set the width of the image as per your requirements
           src={image}

@@ -45,12 +45,12 @@ const UserDashboard = () => {
 
   return (
     <>
-      <div className="bg-blue-500" style={{ height: '300px' }}>
-        <img src={bgImg} className="absolute w-full" style={{ top: '300px' }} />
+      <div className="bg-gradient-to-r from-sky-500 to-indigo-500" style={{ height: '400px' }}>
+        {/* <img src={bgImg} className="absolute w-full" style={{ top: '300px' }} /> */}
       </div>
       <div className="absolute top-0 w-full">
         <MenuAppBar />
-        <div className="p-3 flex flex-col bg-transparent">
+        <div className="p-3 flex flex-col bg-gradient-to-r from-cyan-500 to-blue-500">
           {
             visible && <Alert message={`Hello ${user}, Have a Nice Day!`} type="success" closable afterClose={handleClose} className="mb-2" />
           }
