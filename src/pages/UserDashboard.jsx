@@ -45,69 +45,71 @@ const UserDashboard = () => {
 
   return (
     <>
-    <div className="bg-blue-500" style={{height:'300px'}}>
-    <img src={bgImg} className="absolute w-full" style={{top:'298px'}}/>
-    </div>
-    <div className="absolute top-0 w-full">
-      <MenuAppBar />
-      <div className="p-3 flex flex-col bg-transparent">
-        {
-          visible && <Alert message={`Hello ${user}, Have a Nice Day!`} type="success" closable afterClose={handleClose} className="mb-2" />
-        }
+      <div className="bg-blue-500" style={{ height: '300px' }}>
+        <img src={bgImg} className="absolute w-full" style={{ top: '300px' }} />
+      </div>
+      <div className="absolute top-0 w-full">
+        <MenuAppBar />
+        <div className="p-3 flex flex-col bg-transparent">
+          {
+            visible && <Alert message={`Hello ${user}, Have a Nice Day!`} type="success" closable afterClose={handleClose} className="mb-2" />
+          }
 
-        {/* <Typography variant="subtitle2" className="p-1 text-green-600">Hello {user}, Have a Nice Day !</Typography> */}
-        <div>
-          <Badge.Ribbon text="$ 10" color="green">
-            <div className="rounded-lg overflow-hidden mb-2">
-              <img src={banner} className="w-full h-full object-contain mx-auto" style={{maxWidth:'480px'}}/>
+          {/* <Typography variant="subtitle2" className="p-1 text-green-600">Hello {user}, Have a Nice Day !</Typography> */}
+          <div>
+            <Badge.Ribbon text="$ 10" color="green">
+              <div className="rounded-lg overflow-hidden mb-2">
+                <img src={banner} className="w-full h-full object-contain mx-auto" style={{ maxWidth: '480px' }} />
+              </div>
+            </Badge.Ribbon>
+            <hr />
+            <Type.Title level={5} className="px-1 mt-0 text-white" color="white">Fudged Emoji - The Ultimate Collection of Playful and Creative Icons</Type.Title>
+            <Rate disabled defaultValue={5} />
+          </div>
+          <br />
+          <Type.Text type="secondary" className="mb-1">Submitted Requests</Type.Text>
+          <div className="my-2">
+            <Stack spacing={2} className="items-center">
+              {requests.length > 0 ? requests.map((request) => (
+                <Request
+                  key={request._id}
+                  status={request.status}
+                  id={request._id}
+                  receipt={request.receiptNo}
+                  name={request.spinBy}
+                  date={request.createdAt}
+                  image={request.imgUrl}
+                />
+              )) : <Empty
+                className="items-center"
+                image={waitingImg}
+                description={
+                  <span>
+                    Hmmm..?🤔<br />There's no request <br />
+                  </span>
+                }>
+              </Empty>
+
+              }
+
+            </Stack>
+          </div>
+          <div className="bg-white p-3 rounded-t-lg border-sm shadow-lg mt-2">
+            <Type.Title level={5} className="px-1 mb-0">Express Yourself Like Never Before!</Type.Title>
+            <Type.Text type="secondary" className="px-1 mb-3" >In the world of digital communication, words alone are not enough. Emojis and icons have become the universal language of our time, adding color, emotion, and personality to our conversations. At Fudged Emoji, we're taking this language to a whole new level.</Type.Text>
+          </div>
+          <hr />
+          <Badge.Ribbon text="Special Offer" color="red" placement="start">
+            <div className="bg-amber-100 p-3 my-5 shadow-lg">
+              <Type.Text italic>"For a limited time, we're offering a 90% discount on our complete emoji pack. Don't miss out on this opportunity to spice up your digital conversations!"</Type.Text>
             </div>
           </Badge.Ribbon>
           <hr />
-          <Type.Title level={5} className="px-1 mt-0 text-white" color="white">Fudged Emoji - The Ultimate Collection of Playful and Creative Icons</Type.Title>
-          <Rate disabled defaultValue={5}  />
-        </div>
-        <br/>
-        <Type.Text type="secondary" className="mb-1">Submitted Requests</Type.Text>
-        <div className="my-2">
-          <Stack spacing={2} className="items-center">
-            {requests.length > 0 ? requests.map((request) => (
-              <Request
-                key={request._id}
-                status={request.status}
-                id={request._id}
-                receipt={request.receiptNo}
-                name={request.spinBy}
-                date={request.createdAt}
-                image={request.imgUrl}
-              />
-            )) : <Empty
-              className="items-center"
-              image={waitingImg}
-              description={
-                <span>
-                  Hmmm..?🤔<br />There's no request <br />
-                </span>
-              }>
-            </Empty>
+          <Type.Text type="secondary" underline className="py-0 px-3 mt-1 bg-white rounded-t-lg p-3 shadow-lg">We offer an extensive collection of 3000+ unique, high-quality digital emojis that are designed to let your personality shine through every message you send.</Type.Text>
 
-            }
-
-          </Stack>
         </div>
-        <Type.Title level={5} className="px-1 mb-0">Express Yourself Like Never Before!</Type.Title>
-        <Type.Text type="secondary" className="px-1 mb-3" >In the world of digital communication, words alone are not enough. Emojis and icons have become the universal language of our time, adding color, emotion, and personality to our conversations. At Fudged Emoji, we're taking this language to a whole new level.</Type.Text>
-        <hr/>
-        <Badge.Ribbon text="Special Offer" color="red" placement="start">
-        <div className="bg-amber-100 p-3 my-5">
-          <Type.Text italic>"For a limited time, we're offering a 90% discount on our complete emoji pack. Don't miss out on this opportunity to spice up your digital conversations!"</Type.Text>
-        </div>
-        </Badge.Ribbon>
-        <hr/>
-        <Type.Text type="secondary" underline className="py-0 px-3 mt-1">We offer an extensive collection of 3000+ unique, high-quality digital emojis that are designed to let your personality shine through every message you send.</Type.Text>
-
-      </div>
-      <CreateRequestFormModal onRequestCreated={handleRequestCreated} />
-      {/* <BottomNavigationBar setIsModalOpen={setModalOpen}/> */}
+        <CreateRequestFormModal onRequestCreated={handleRequestCreated} />
+        {/* <BottomNavigationBar setIsModalOpen={setModalOpen}/> */}
       </div>
     </>
   );

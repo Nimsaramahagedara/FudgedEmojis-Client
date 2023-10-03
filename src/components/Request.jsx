@@ -26,13 +26,13 @@ const Request = ({ id, status, receipt, name, date,image }) => {
       bodyStyle={{
         padding:'0'
       }}
-      className="border-solid border-2 "
+      className="shadow-md"
     >
       <div className="flex items-center">
       {/* Left-side image */}
-      <div className="mr-2 w-1/4 overflow-hidden p-2 bg-gray-100" style={{height:'100px'}}>
+      <div className="mr-2 w-1/4 overflow-hidden p-3 bg-gray-100 rounded-full border-2 border-gray-100 ">
         <Image
-          width={100} // Set the width of the image as per your requirements
+          width={'100%'} // Set the width of the image as per your requirements
           src={image}
           className="object-contain w-full h-full"
         />
