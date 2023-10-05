@@ -6,6 +6,8 @@ import moment from "moment";
 import { toast } from "react-toastify";
 import SendEmailModal from "../../components/SendEmailModal";
 import ReviewModal from "../../components/ReviewModel";
+import ReactToPrint from "react-to-print";
+
 const SendEmails = () => {
   const [sendRequest, setSendRequest] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);

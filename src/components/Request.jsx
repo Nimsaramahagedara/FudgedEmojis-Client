@@ -26,7 +26,7 @@ const Request = ({ id, status, receipt, name, date,image }) => {
       bodyStyle={{
         padding:'0'
       }}
-      className="bg-sky-700 shadow-2xl"
+      className="bg-gradient-to-r from-sky-600 to-sky-700  shadow-2xl"
     >
       {/**bg-gradient-to-r from-sky-500 to-sky-800 */}
       <div className="flex items-center">

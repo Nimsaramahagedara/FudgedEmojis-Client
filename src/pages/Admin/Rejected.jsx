@@ -3,9 +3,12 @@ import React, { useEffect, useState } from 'react'
 import { Segmented, Space, Table, Tag } from 'antd';
 import axios from "../../../axios-config";
 import moment from 'moment';
+import PrintComponent from '../../components/PrintComponent';
+import { useRef } from 'react';
 
 const Rejected = () => {
   const [rejectRequest,setRejectRequest] = useState([])
+  const table = useRef(null);
   useEffect(() => {
   
     axios.get("/request/rejected").then((res) => {
@@ -91,7 +94,8 @@ const Rejected = () => {
       <Title level={3} className='text-center my-3'>Rejected</Title>
       <hr className='my-4' />
       <Segmented options={['All','Daily', 'Weekly', 'Monthly', 'Yearly']} />
-      <Table dataSource={sendRequestWithKeys} columns={columns} className="overflow-x-auto" pagination={{ pageSize: 5 }}/>
+      <PrintComponent componentRef={table}/>
+      <Table ref={table} dataSource={sendRequestWithKeys} columns={columns} className="overflow-x-auto" pagination={{ pageSize: 5 }}/>
     </div>
   )
 }

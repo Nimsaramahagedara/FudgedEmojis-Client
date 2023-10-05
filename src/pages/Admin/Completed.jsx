@@ -1,11 +1,17 @@
 import Title from "antd/es/typography/Title";
-import React, { useEffect, useState } from "react";
-import { Segmented, Space, Table, Tag } from "antd";
+import React, { useEffect, useRef, useState } from "react";
+import { Segmented, Space, Table, Tag,Button } from "antd";
 import axios from "../../../axios-config";
 import moment from "moment";
+import PrintComponent from "../../components/PrintComponent";
+
 
 const Completed = () => {
   const [request, setRequest] = useState([]);
+  const table = useRef(null);
+
+  
+
 
   const handleFilter = (value)=>{
     console.log(value);
@@ -76,7 +82,9 @@ const Completed = () => {
       </Title>
       <hr className="my-4" />
       <Segmented options={['All','Daily', 'Weekly', 'Monthly', 'Yearly']} onChange={handleFilter} />
+      <PrintComponent componentRef={table}/>
       <Table
+        ref={table}
         dataSource={sendRequestWithKeys}
         columns={columns}
         className="overflow-x-auto"
