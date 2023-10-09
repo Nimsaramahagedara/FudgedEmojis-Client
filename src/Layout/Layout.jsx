@@ -4,7 +4,7 @@ import {
   MenuUnfoldOutlined, AppstoreOutlined, SnippetsOutlined, WarningOutlined, CheckSquareOutlined, BarChartOutlined, UserOutlined, ExclamationCircleOutlined
 } from '@ant-design/icons';
 
-import { Breadcrumb, Layout, Menu, Button } from 'antd';
+import { Breadcrumb, Layout as Lay, Menu, Button } from 'antd';
 import { Outlet, Link } from 'react-router-dom';
 import { Footer } from 'antd/es/layout/layout';
 import logo from '../assets/logo.png';
@@ -15,7 +15,7 @@ import { Switch, Space } from 'antd';
 //import { logout } from '../Pages/Login/Login';
 // import { setAuthToken } from '../Pages/Login/Login';
 
-const { Header, Content, Sider } = Layout;
+const { Header, Content, Sider } = Lay;
 
 const items = [
   {
@@ -95,7 +95,7 @@ const AdminLayout = () => {
     <ConfigProvider theme={{
       algorithm: isDarkMode ? darkAlgorithm : defaultAlgorithm,
     }}>
-      <Layout>
+      <Lay>
         {/* Sidebar */}
         <Sider trigger={null} collapsible collapsed={collapsed}>
 
@@ -113,7 +113,7 @@ const AdminLayout = () => {
             {renderMenuItems(items)}
           </Menu>
         </Sider>
-        <Layout>
+        <Lay>
           {/* Top Header */}
           <Header
             style={{
@@ -160,8 +160,8 @@ const AdminLayout = () => {
           >
             Fudged Emojis
           </Footer>
-        </Layout>
-      </Layout>
+        </Lay>
+      </Lay>
     </ConfigProvider>
   );
 };

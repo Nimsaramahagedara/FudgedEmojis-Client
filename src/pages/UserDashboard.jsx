@@ -9,6 +9,9 @@ import { Alert, Badge, Button, Empty, Rate, Typography as Type } from 'antd';
 import banner from '../assets/Banner.png'
 import waitingImg from '../assets/waiting.svg'
 import bgImg from '../assets/bg.svg'
+import MainBanner from "../components/MainBanner";
+import HowToBox from "../components/HowToBox";
+import { CloudUploadOutlined, DollarCircleOutlined, RedoOutlined, ShopOutlined } from "@ant-design/icons";
 const UserDashboard = () => {
   const [shouldRefresh, setShouldRefresh] = useState(false);
   const [user, setUser] = useState('')
@@ -43,6 +46,41 @@ const UserDashboard = () => {
       });
   }, [shouldRefresh]);
 
+  const howtoContent=[
+    {
+      title:'Visits The FudgesEmojis Store',
+      content:'Visit and Buy a product, Get Your Invoice',
+      link:'#',
+      linkText:'Buy Now',
+      icon: <ShopOutlined className='text-2xl'/>,
+      bgColor:'rgb(124 102 255)'
+    },
+    {
+      title:'Upload Your Invoice Here',
+      content:'Upload Your Voucher Wait For Review',
+      link:'#',
+      linkText:'Upload Here',
+      icon: <CloudUploadOutlined className='text-2xl'/>,
+      bgColor:'rgb(220 87 87)'
+    },
+    {
+      title:'Spin the Wheel',
+      content:'After the Approval Spin wheel and Get Discount Amount',
+      link:'#',
+      linkText:'Spin Now',
+      icon: <RedoOutlined className='text-2xl'/>,
+      bgColor:'rgb(31 141 0)'
+    },
+    {
+      title:'Claim the Voucher Via Email',
+      content:'You can claim Your Voucher (upto 100%) via email within 48 hours',
+      link:'#',
+      linkText:'Upload Here',
+      icon: <DollarCircleOutlined className='text-2xl'/>,
+      bgColor:'#bf9500'
+    }
+
+  ]
   return (
     <>
       <div className="bg-gradient-to-r from-sky-500 to-indigo-500" style={{ height: '400px' }}>
@@ -57,16 +95,28 @@ const UserDashboard = () => {
 
           {/* <Typography variant="subtitle2" className="p-1 text-green-600">Hello {user}, Have a Nice Day !</Typography> */}
           <div>
-            <Badge.Ribbon text="$ 10" color="green">
-              <div className="rounded-lg overflow-hidden mb-2">
+            {/* <Badge.Ribbon text="$ 10" color="green">
+              <div className="rounded-lg overflow-hidden mb-2 bg-gradient-to-r from-sky-500 to-indigo-500">
                 <img src={banner} className="w-full h-full object-contain mx-auto" style={{ maxWidth: '480px' }} />
               </div>
-            </Badge.Ribbon>
-            <hr />
-            <Type.Title level={5} className="px-1 mt-0 text-white" color="white">Fudged Emoji - The Ultimate Collection of Playful and Creative Icons</Type.Title>
-            <Rate disabled defaultValue={5} />
+            </Badge.Ribbon> */}
+            <MainBanner name={user}/>
+            <div className="px-1 mt-0 ">
+              <Type.Title level={5} className="text-white mb-0">Fudged Emoji - The Ultimate Collection of Playful and Creative Icons</Type.Title>
+              <Rate disabled defaultValue={5} className="text-sm" />
+            </div>
           </div>
           <br />
+          <div className="howto">
+            <Type.Title level={5} className='text-white'>How to ?</Type.Title>
+            {
+              howtoContent.map((element)=>{
+                return <HowToBox props={element} />
+              })
+            }
+          </div>
+
+
           <Type.Text type="secondary" className="mb-1">Submitted Requests</Type.Text>
           <div className="my-2">
             <Stack spacing={2} className="items-center">
