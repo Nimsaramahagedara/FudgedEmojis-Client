@@ -8,7 +8,7 @@ import { Breadcrumb, Layout as Lay, Menu, Button } from 'antd';
 import { Outlet, Link } from 'react-router-dom';
 import { Footer } from 'antd/es/layout/layout';
 import logo from '../assets/logo.png';
-import colorLogo from '../assets/colorLogo.png';
+//import colorLogo from '../assets/colorLogo.png';
 import { ConfigProvider, theme, Card } from "antd";
 import { BulbOutlined, StarOutlined } from '@ant-design/icons';
 import { Switch, Space } from 'antd';

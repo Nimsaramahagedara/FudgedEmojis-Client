@@ -22,7 +22,10 @@ import 'aos/dist/aos.css';
 function App() {
 
   useEffect(() => {
-    AOS.init({duration: 500, delay:500,once:true});
+    setTimeout(()=>{
+      AOS.init({duration: 500,once:true});
+    },1000)
+    
   }, [])
 
   

@@ -65,8 +65,9 @@ export default function BottomNavigationBar({ middleButton }) {
 
           <BottomNavigationAction
             label="Add New"
-            icon={<AddCircleOutlineIcon />}
+            icon={<AddCircleOutlineIcon  />}
             onClick={middleButton}
+            style={{color:'white'}}
           />
 
           <BottomNavigationAction label="Sad" icon={<img src={sad} alt="sad" style={{width:'20px'}}/>}/>
