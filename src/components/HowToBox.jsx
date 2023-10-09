@@ -6,7 +6,7 @@ import React from 'react'
 const HowToBox = ({props}) => {
   const {bgColor} = props;
   return (
-    <div className='p-3 bg-white text-gray-100 rounded-lg mb-2'>
+    <div className='p-3 bg-white text-gray-100 rounded-lg mb-2' data-aos={props.effect}>
       <div className='flex items-center'>
         <div className='rounded-lg flex justify-center' style={{width:'50px', aspectRatio:'1/1', backgroundColor:bgColor}}>
           {props.icon}

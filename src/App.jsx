@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import SignIn from './pages/SignIn';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'; // Import HashRouter instead of BrowserRouter
@@ -15,8 +15,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import NewSpin from './pages/SpinWheel2';
 import ErrorPage from './pages/ErrorPage';
 import Report from './pages/Report';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 function App() {
+
+  useEffect(() => {
+    AOS.init({duration: 500, delay:500});
+  }, [])
+
+  
   return (
     <>
       <ToastContainer autoClose={1500} pauseOnFocusLoss={false} pauseOnHover={false} />

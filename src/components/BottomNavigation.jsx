@@ -17,15 +17,17 @@ import CreateRequestFormModal from './CreateRequestFormModal';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { MoodBadOutlined, MoodOutlined } from '@mui/icons-material';
+import happy from '../assets/happy.png';
+import sad from '../assets/sad.png';
 
-export default function BottomNavigationBar({middleButton}) {
+export default function BottomNavigationBar({ middleButton }) {
   const [value, setValue] = useState(1);
   const ref = React.useRef(null);
   const [messages, setMessages] = useState([]);
 
   function refreshMessages() {
     const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
-  
+
     return Array.from(new Array(50)).map(
       () => messageExamples[getRandomInt(messageExamples.length)],
     );
@@ -33,7 +35,7 @@ export default function BottomNavigationBar({middleButton}) {
 
   useEffect(() => {
     ref.current.ownerDocument.body.scrollTop = 0;
-  
+
     setMessages(refreshMessages());
   }, [value, setMessages]);
 
@@ -50,15 +52,16 @@ export default function BottomNavigationBar({middleButton}) {
           </ListItem>
         ))}
       </List> */}
-      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 , background:'linear'}} elevation={3} className='bg-gradient-to-r from-sky-300 to-sky-500'>
+      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, background: 'linear' }} elevation={3} className='bg-gradient-to-r from-sky-300 to-sky-500'>
         <BottomNavigation
           value={value}
-          sx={{background:'unset'}}
+          sx={{ background: 'unset' }}
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction label="Happy" icon={<MoodOutlined />} />
+          <BottomNavigationAction label="Happy" icon={<img src={happy} alt="sad" style={{width:'20px'}}/>}/>
+
 
           <BottomNavigationAction
             label="Add New"
@@ -66,7 +69,7 @@ export default function BottomNavigationBar({middleButton}) {
             onClick={middleButton}
           />
 
-          <BottomNavigationAction label="Sad" icon={<MoodBadOutlined />} />
+          <BottomNavigationAction label="Sad" icon={<img src={sad} alt="sad" style={{width:'20px'}}/>}/>
         </BottomNavigation>
       </Paper>
     </Box>

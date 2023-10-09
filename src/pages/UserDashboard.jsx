@@ -53,7 +53,8 @@ const UserDashboard = () => {
       link:'#',
       linkText:'Buy Now',
       icon: <ShopOutlined className='text-2xl'/>,
-      bgColor:'rgb(124 102 255)'
+      bgColor:'rgb(124 102 255)',
+      effect:'fade-in'
     },
     {
       title:'Upload Your Invoice Here',
@@ -61,7 +62,8 @@ const UserDashboard = () => {
       link:'#',
       linkText:'Upload Here',
       icon: <CloudUploadOutlined className='text-2xl'/>,
-      bgColor:'rgb(220 87 87)'
+      bgColor:'rgb(220 87 87)',
+      effect:'fade-in'
     },
     {
       title:'Spin the Wheel',
@@ -69,15 +71,17 @@ const UserDashboard = () => {
       link:'#',
       linkText:'Spin Now',
       icon: <RedoOutlined className='text-2xl'/>,
-      bgColor:'rgb(31 141 0)'
+      bgColor:'rgb(31 141 0)',
+      effect:'fade-in'
     },
     {
       title:'Claim the Voucher Via Email',
       content:'You can claim Your Voucher (upto 100%) via email within 48 hours',
       link:'#',
-      linkText:'Upload Here',
+      linkText:'Check Your inbox',
       icon: <DollarCircleOutlined className='text-2xl'/>,
-      bgColor:'#bf9500'
+      bgColor:'#bf9500',
+      effect:'fade-in'
     }
 
   ]
@@ -110,8 +114,8 @@ const UserDashboard = () => {
           <div className="howto">
             <Type.Title level={5} className='text-white'>How to ?</Type.Title>
             {
-              howtoContent.map((element)=>{
-                return <HowToBox props={element} />
+              howtoContent.map((element,index)=>{
+                return <HowToBox props={element}  key={index}/>
               })
             }
           </div>
@@ -144,18 +148,18 @@ const UserDashboard = () => {
 
             </Stack>
           </div>
-          <div className="bg-white p-3 rounded-t-lg border-sm shadow-lg mt-2">
+          <div className="bg-white p-3 rounded-t-lg border-sm shadow-lg mt-2" data-aos='fade-right'>
             <Type.Title level={5} className="px-1 mb-0">Express Yourself Like Never Before!</Type.Title>
             <Type.Text type="secondary" className="px-1 mb-3" >In the world of digital communication, words alone are not enough. Emojis and icons have become the universal language of our time, adding color, emotion, and personality to our conversations. At Fudged Emoji, we're taking this language to a whole new level.</Type.Text>
           </div>
           <hr />
           <Badge.Ribbon text="Special Offer" color="red" placement="start">
-            <div className="bg-amber-100 p-3 my-5 shadow-lg">
+            <div className="bg-amber-100 p-3 my-5 shadow-lg" data-aos='fade-left'>
               <Type.Text italic>"For a limited time, we're offering a 90% discount on our complete emoji pack. Don't miss out on this opportunity to spice up your digital conversations!"</Type.Text>
             </div>
           </Badge.Ribbon>
           <hr />
-          <Type.Text type="secondary" underline className="py-0 px-3 mt-1 bg-white rounded-t-lg p-3 shadow-lg">We offer an extensive collection of 3000+ unique, high-quality digital emojis that are designed to let your personality shine through every message you send.</Type.Text>
+          <Type.Text type="secondary" underline className="py-0 px-3 mt-1 bg-white rounded-t-lg p-3 shadow-lg" data-aos='fade-right'>We offer an extensive collection of 3000+ unique, high-quality digital emojis that are designed to let your personality shine through every message you send.</Type.Text>
 
         </div>
         <CreateRequestFormModal onRequestCreated={handleRequestCreated} />
