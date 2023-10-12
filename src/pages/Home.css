@@ -1,0 +1,7 @@
+.user-home{
+    background:radial-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url(../assets/5.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}

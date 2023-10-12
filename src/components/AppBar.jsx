@@ -38,6 +38,7 @@ const MenuAppBar = ()=> {
   }
 
   return (
+    <div className='bg-gradient-to-r from-sky-500 to-indigo-500'>
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ background: 'transparent', color: 'black', boxShadow: 'none' }} >
         <Toolbar>
@@ -87,6 +88,7 @@ const MenuAppBar = ()=> {
         </Toolbar>
       </AppBar>
     </Box>
+    </div>
   );
 }
 

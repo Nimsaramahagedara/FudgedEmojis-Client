@@ -8,9 +8,10 @@ import { useNavigate } from "react-router-dom";
 import { Alert, Badge, Button, Empty, Rate, Typography as Type } from 'antd';
 import banner from '../assets/Banner.png'
 import waitingImg from '../assets/waiting.svg'
-import bgImg from '../assets/bg.svg'
+import bgImg from '../assets/5.png'
 import MainBanner from "../components/MainBanner";
 import HowToBox from "../components/HowToBox";
+import './Home.css';
 import { CloudUploadOutlined, DollarCircleOutlined, RedoOutlined, ShopOutlined } from "@ant-design/icons";
 const UserDashboard = () => {
   const [shouldRefresh, setShouldRefresh] = useState(false);
@@ -87,12 +88,9 @@ const UserDashboard = () => {
   ]
   return (
     <>
-      <div className="bg-gradient-to-r from-sky-500 to-indigo-500" style={{ height: '400px' }}>
-        {/* <img src={bgImg} className="absolute w-full" style={{ top: '300px' }} /> */}
-      </div>
-      <div className="absolute top-0 w-full">
+      <div className="absolute top-0 w-full  bg-gradient-to-r from-cyan-500 to-blue-500">
         <MenuAppBar />
-        <div className="p-3 flex flex-col bg-gradient-to-r from-cyan-500 to-blue-500">
+        <div className="p-3 flex flex-col user-home">
           {
             visible && <Alert message={`Hello ${user}, Have a Nice Day!`} type="success" closable afterClose={handleClose} className="mb-2" />
           }
@@ -106,13 +104,13 @@ const UserDashboard = () => {
             </Badge.Ribbon> */}
             <MainBanner name={user}/>
             <div className="px-1 mt-0 ">
-              <Type.Title level={5} className="text-white mb-0">Fudged Emoji - The Ultimate Collection of Playful and Creative Icons</Type.Title>
+              <Type.Title level={5} className="text-white mb-0" style={{color:'white'}}>Fudged Emoji - The Ultimate Collection of Playful and Creative Icons</Type.Title>
               <Rate disabled defaultValue={5} className="text-sm" />
             </div>
           </div>
           <br />
           <div className="howto">
-            <Type.Title level={5} className='text-white'>How to ?</Type.Title>
+            <Type.Title level={5} className='text-white' style={{color:'white'}}>How to ?</Type.Title>
             {
               howtoContent.map((element,index)=>{
                 return <HowToBox props={element}  key={index}/>
