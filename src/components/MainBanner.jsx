@@ -4,12 +4,12 @@ import mainBannerImg from '../assets/banner-image.png'
 import voucherImg  from '../assets/discount.png' 
 const MainBanner = ({ name }) => {
   return (
-    <div className='rounded flex items-center shadow-lg my-2 main-banner'>
+    <div className='rounded-lg flex items-center shadow-lg my-2 main-banner'>
       <div className='img w-3/4'>
         <img src={mainBannerImg} className='w-full h-full object-contain' />
       </div>
       <div className='w-3/4 p-2'>
-        <Typography.Title level={5} className='text-white' style={{ color: 'white' }}><span className='text-yellow-500'>Hello,</span>{name} </Typography.Title>
+        <Typography.Title level={3} className='text-white text-center' style={{ color: 'white' }}><span className='text-yellow-500'>Hello,</span>{name} </Typography.Title>
         <p className='text-gray-100 text-xs text-center'>Buy any product from FudgedEmojis Store and get upto</p>
         <div className='flex justify-center'>
           <p className=' text-yellow-500 text-lg vouchers-text'>Vouchers</p>
