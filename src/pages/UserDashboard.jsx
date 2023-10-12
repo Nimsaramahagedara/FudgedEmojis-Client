@@ -136,7 +136,7 @@ const UserDashboard = () => {
                 className="items-center"
                 image={waitingImg}
                 description={
-                  <span>
+                  <span className="text-white">
                     Hmmm..?🤔<br />There's no request <br />
                   </span>
                 }>

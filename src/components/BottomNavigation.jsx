@@ -41,8 +41,9 @@ export default function BottomNavigationBar({ middleButton }) {
 
   return (
     <Box sx={{ pb: 7 }} ref={ref}>
-      <CssBaseline />
-      {/* <List>
+     
+        <CssBaseline />
+        {/* <List>
         {messages.map(({ primary, secondary, person }, index) => (
           <ListItem button key={index + person}>
             <ListItemAvatar>
@@ -52,27 +53,27 @@ export default function BottomNavigationBar({ middleButton }) {
           </ListItem>
         ))}
       </List> */}
-      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, background: 'linear' }} elevation={3} className='bg-gradient-to-r from-sky-300 to-sky-500'>
-        <BottomNavigation
-          value={value}
-          sx={{ background: 'unset' }}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-        >
-          <BottomNavigationAction label="Happy" icon={<img src={happy} alt="sad" style={{width:'20px'}}/>}/>
+        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, background: 'linear' }} elevation={3} className="bg-gradient-to-r to-purple-950 from-fuchsia-950">
+          <BottomNavigation
+            value={value}
+            sx={{ background: 'unset' }}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+          >
+            <BottomNavigationAction label="Happy" icon={<img src={happy} alt="sad" style={{ width: '20px' }} />} />
 
 
-          <BottomNavigationAction
-            label="Add New"
-            icon={<AddCircleOutlineIcon  />}
-            onClick={middleButton}
-            style={{color:'white'}}
-          />
+            <BottomNavigationAction
+              label="Add New"
+              icon={<AddCircleOutlineIcon />}
+              onClick={middleButton}
+              style={{ color: 'white' }}
+            />
 
-          <BottomNavigationAction label="Sad" icon={<img src={sad} alt="sad" style={{width:'20px'}}/>}/>
-        </BottomNavigation>
-      </Paper>
+            <BottomNavigationAction label="Sad" icon={<img src={sad} alt="sad" style={{ width: '20px' }} />} />
+          </BottomNavigation>
+        </Paper>
     </Box>
   );
 }

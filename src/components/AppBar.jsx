@@ -38,7 +38,7 @@ const MenuAppBar = ()=> {
   }
 
   return (
-    <div className='bg-gradient-to-r from-sky-500 to-indigo-500'>
+    <div className='bg-gradient-to-r to-purple-950 from-fuchsia-950'>
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ background: 'transparent', color: 'black', boxShadow: 'none' }} >
         <Toolbar>
@@ -47,6 +47,7 @@ const MenuAppBar = ()=> {
             edge="start"
             aria-label="menu"
             sx={{padding:'10px'}}
+            color='secondary'
           >
             <AlignHorizontalLeftIcon />
           </IconButton>
@@ -61,7 +62,8 @@ const MenuAppBar = ()=> {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleMenu}
-                color="inherit"
+                color="secondary"
+
               >
                 <MoreVertIcon />
               </IconButton>

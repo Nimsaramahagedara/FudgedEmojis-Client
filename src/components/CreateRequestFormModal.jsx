@@ -89,7 +89,7 @@ export default function CreateRequestFormModal({ onRequestCreated}) {
   };
 
   return (
-    <div>
+    <>
       {/* <Button
         onClick={handleOpen}
         variant="outlined"
@@ -102,7 +102,7 @@ export default function CreateRequestFormModal({ onRequestCreated}) {
       >
         Get New Voucher
       </Button> */}
-      <BottomNavigationBar middleButton={()=>handleOpen()}/>
+      <BottomNavigationBar middleButton={()=>handleOpen()} />
       <Modal
         open={open}
         onClose={handleClose}
@@ -167,6 +167,6 @@ export default function CreateRequestFormModal({ onRequestCreated}) {
           </form>
         </Box>
       </Modal>
-    </div>
+    </>
   );
 }
