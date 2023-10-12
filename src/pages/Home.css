@@ -12,6 +12,16 @@
     background-position: center;
 
 }
+@media screen and (min-width: 800px) {
+    .main-banner, .banner-title{
+        max-width: 70vw;
+        margin: 10px auto;
+    }
+    .howto{
+        width: 70%;
+        margin: 10px auto;
+    }
+}
 .vouchers-text{
   text-shadow: -1px 0 0px rgb(244, 185, 9), 0 0 0 rgb(234 179 8 ),
                 0 20px 30px rgba(0, 0, 0, 0.5);  

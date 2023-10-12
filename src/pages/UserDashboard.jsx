@@ -6,9 +6,7 @@ import CreateRequestFormModal from "../components/CreateRequestFormModal";
 import axios from "../../axios-config";
 import { useNavigate } from "react-router-dom";
 import { Alert, Badge, Button, Empty, Rate, Typography as Type } from 'antd';
-import banner from '../assets/Banner.png'
 import waitingImg from '../assets/waiting.svg'
-import bgImg from '../assets/5.png'
 import MainBanner from "../components/MainBanner";
 import HowToBox from "../components/HowToBox";
 import './Home.css';
@@ -94,16 +92,9 @@ const UserDashboard = () => {
           {
             visible && <Alert message={`Hello ${user}, Have a Nice Day!`} type="success" closable afterClose={handleClose} className="mb-2" />
           }
-
-          {/* <Typography variant="subtitle2" className="p-1 text-green-600">Hello {user}, Have a Nice Day !</Typography> */}
-          <div>
-            {/* <Badge.Ribbon text="$ 10" color="green">
-              <div className="rounded-lg overflow-hidden mb-2 bg-gradient-to-r from-sky-500 to-indigo-500">
-                <img src={banner} className="w-full h-full object-contain mx-auto" style={{ maxWidth: '480px' }} />
-              </div>
-            </Badge.Ribbon> */}
+        <div>
             <MainBanner name={user}/>
-            <div className="px-1 mt-0 ">
+            <div className="px-1 mt-0 banner-title">
               <Type.Title level={5} className="text-white mb-0" style={{color:'white'}}>Fudged Emoji - The Ultimate Collection of Playful and Creative Icons</Type.Title>
               <Rate disabled defaultValue={5} className="text-sm" />
             </div>
