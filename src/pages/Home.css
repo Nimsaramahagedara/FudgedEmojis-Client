@@ -5,3 +5,15 @@
     background-position: center;
     background-attachment: fixed;
 }
+.main-banner{
+    background:radial-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url(../assets/bgGradient.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+.vouchers-text{
+  text-shadow: -1px 0 0px rgb(244, 185, 9), 0 0 0 rgb(234 179 8 ),
+                0 20px 30px rgba(0, 0, 0, 0.5);  
+}
+
