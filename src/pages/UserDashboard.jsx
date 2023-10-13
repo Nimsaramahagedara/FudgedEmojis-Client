@@ -138,17 +138,17 @@ const UserDashboard = () => {
             </Stack>
           </div>
           <hr/>
-          {/* <div className="bg-white p-3 rounded-t-lg border-sm shadow-lg mt-2" data-aos='fade-right'>
+          <div className="bg-white p-3 rounded-t-lg border-sm shadow-lg mt-2" data-aos='fade-right'>
             <Type.Title level={5} className="px-1 mb-0">Express Yourself Like Never Before!</Type.Title>
             <Type.Text type="secondary" className="px-1 mb-3" >In the world of digital communication, words alone are not enough. Emojis and icons have become the universal language of our time, adding color, emotion, and personality to our conversations. At Fudged Emoji, we're taking this language to a whole new level.</Type.Text>
-          </div> */}
+          </div>
 
-          <Badge.Ribbon text="Special Offer" color="red" placement="start">
+          {/* <Badge.Ribbon text="Special Offer" color="red" placement="start">
             <div className="bg-amber-100 p-3 my-5 shadow-lg" data-aos='fade-left'>
               <Type.Text italic>"For a limited time, we're offering a 90% discount on our complete emoji pack. Don't miss out on this opportunity to spice up your digital conversations!"</Type.Text>
             </div>
-          </Badge.Ribbon>
-          {/* <Type.Text type="secondary" underline className="py-0 px-3 mt-1 bg-white rounded-t-lg p-3 shadow-lg" data-aos='fade-right'>We offer an extensive collection of 3000+ unique, high-quality digital emojis that are designed to let your personality shine through every message you send.</Type.Text> */}
+          </Badge.Ribbon> */}
+          <Type.Text type="secondary" underline className="py-0 px-3 mt-1 bg-white rounded-t-lg p-3 shadow-lg" data-aos='fade-right'>We offer an extensive collection of 3000+ unique, high-quality digital emojis that are designed to let your personality shine through every message you send.</Type.Text>
 
         </div>
         <CreateRequestFormModal onRequestCreated={handleRequestCreated} />
