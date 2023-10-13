@@ -46,24 +46,24 @@ const UserDashboard = () => {
   }, [shouldRefresh]);
 
   const howtoContent=[
-    {
-      title:'Visits The FudgesEmojis Store',
-      content:'Visit and Buy a product, Get Your Invoice',
-      link:'https://fudgesemoji.myshopify.com/',
-      linkText:'Buy Now',
-      icon: <ShopOutlined className='text-2xl'/>,
-      bgColor:'rgb(124 102 255)',
-      effect:'fade-in'
-    },
-    {
-      title:'Upload Your Invoice',
-      content:'Upload Your Invoice and Get 100% Discount Voucher',
-      link:'#',
-      linkText:'Upload Here',
-      icon: <CloudUploadOutlined className='text-2xl'/>,
-      bgColor:'rgb(220 87 87)',
-      effect:'fade-in'
-    },
+    // {
+    //   title:'Visits The FudgesEmojis Store',
+    //   content:'Visit and Buy a product, Get Your Invoice',
+    //   link:'https://fudgesemoji.myshopify.com/',
+    //   linkText:'Buy Now',
+    //   icon: <ShopOutlined className='text-2xl'/>,
+    //   bgColor:'rgb(124 102 255)',
+    //   effect:'fade-in'
+    // },
+    // {
+    //   title:'Upload Your Invoice',
+    //   content:'Upload Your Invoice and Get 100% Discount Voucher',
+    //   link:'#',
+    //   linkText:'Upload Here',
+    //   icon: <CloudUploadOutlined className='text-2xl'/>,
+    //   bgColor:'rgb(220 87 87)',
+    //   effect:'fade-in'
+    // },
     // {
     //   title:'Spin the Wheel',
     //   content:'After the Approval, Spin the wheel and Get Discount Amount',
