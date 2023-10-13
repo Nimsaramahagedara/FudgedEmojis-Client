@@ -37,61 +37,61 @@ function NewSpin() {
   const id = queryParams.get("id");
   const [value, setValue] = useState(0);
   const [chances, setChances] = useState(1);
-  const segments = [
-    {
-      color: '#db7093',
-      value: '75'
-    },
-    {
-      color: '#20b2aa',
-      value: '70'
-    },
-    {
-      color: '#d63e92',
-      value: '65'
-    },
-    {
-      color: '#daa520',
-      value: '60'
-    },
-    {
-      color: '#ff340f',
-      value: '55'
-    },
-    {
-      color: '#ff7f50',
-      value: '50'
-    },
-    {
-      color: '#3cb371',
-      value: '45'
-    },
-    {
-      color: '#4169e1',
-      value: '40'
-    }
+  // const segments = [
+  //   {
+  //     color: '#db7093',
+  //     value: '75'
+  //   },
+  //   {
+  //     color: '#20b2aa',
+  //     value: '70'
+  //   },
+  //   {
+  //     color: '#d63e92',
+  //     value: '65'
+  //   },
+  //   {
+  //     color: '#daa520',
+  //     value: '60'
+  //   },
+  //   {
+  //     color: '#ff340f',
+  //     value: '55'
+  //   },
+  //   {
+  //     color: '#ff7f50',
+  //     value: '50'
+  //   },
+  //   {
+  //     color: '#3cb371',
+  //     value: '45'
+  //   },
+  //   {
+  //     color: '#4169e1',
+  //     value: '40'
+  //   }
 
-  ];
+  // ];
   const segments2 = [
     {
       color: '#db7093',
-      value: '105'
+      value: '100'
     },
     {
       color: '#20b2aa',
-      value: '104'
+      value: '100'
     },
     {
       color: '#d63e92',
-      value: '103'
+      value: '100'
     },
     {
       color: '#daa520',
-      value: '102'
+      value: '100'
     },
     {
       color: '#ff340f',
-      value: '101'
+      value: '100'
     },
     {
       color: '#ff7f50',
@@ -99,7 +99,7 @@ function NewSpin() {
     },
     {
       color: '#3cb371',
-      value: '99'
+      value: '95'
     },
     {
       color: '#4169e1',
@@ -110,11 +110,9 @@ function NewSpin() {
   const spinOutput = (winner) => {
     toast.success('Congratulations 🎉🎉!! You Won '+ winner + '%' + ' Voucher From Fudged');
     setChances(0);
-    saveResultToDatabase(winner, "Amazon");
+    saveResultToDatabase(winner, "Shopify");
 
   };
-  const baseUrl = import.meta.env.VITE_BASE_URL;
-  const accessToken = localStorage.getItem("token");
 
   const saveResultToDatabase = (result, selectedTab) => {
     const parsedResult = parseInt(result, 10);
@@ -152,13 +150,10 @@ function NewSpin() {
         textColor="primary"
         centered
       >
-        <Tab label="Amazone" />
+        {/* <Tab label="Amazone" /> */}
         <Tab label="Shopify" />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <SpinWheel segments={segments} spinOutput={spinOutput} chances={chances}/>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
         <SpinWheel segments={segments2} spinOutput={spinOutput} chances={chances}/>
       </TabPanel>
       <div className="w-full bottom-0 left-0">
