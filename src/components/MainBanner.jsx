@@ -1,7 +1,9 @@
 import { Typography } from 'antd'
 import React from 'react'
 import mainBannerImg from '../assets/banner-image.png'
+//const mainBannerImg = React.lazy(() => import('../assets/banner-image.png'));
 import voucherImg  from '../assets/discount.png' 
+import { lazy } from 'react'
 const MainBanner = ({ name }) => {
   return (
     <div className='rounded-lg flex items-center shadow-lg my-2 main-banner'>

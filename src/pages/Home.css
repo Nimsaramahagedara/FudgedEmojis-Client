@@ -12,6 +12,13 @@
     background-position: center;
 
 }
+.second-banner{
+        background:radial-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url(../assets/secondbg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+}
 @media screen and (min-width: 800px) {
     .main-banner, .banner-title{
         max-width: 70vw;

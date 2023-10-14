@@ -11,6 +11,7 @@ import MainBanner from "../components/MainBanner";
 import HowToBox from "../components/HowToBox";
 import './Home.css';
 import { CloudUploadOutlined, DollarCircleOutlined, RedoOutlined, ShopOutlined } from "@ant-design/icons";
+import SecondBanner from "../components/SecondBanner";
 const UserDashboard = () => {
   const [shouldRefresh, setShouldRefresh] = useState(false);
   const [user, setUser] = useState('')
@@ -99,6 +100,7 @@ const UserDashboard = () => {
               <Rate disabled defaultValue={5} className="text-sm" />
             </div>
           </div>
+          <CreateRequestFormModal onRequestCreated={handleRequestCreated} />
           <br />
           <div className="howto">
             <Type.Title level={5} className='text-white' style={{color:'white'}}>How to ?</Type.Title>
@@ -151,7 +153,7 @@ const UserDashboard = () => {
           <Type.Text type="secondary" underline className="py-0 px-3 mt-1 bg-white rounded-t-lg p-3 shadow-lg" data-aos='fade-right'>We offer an extensive collection of 3000+ unique, high-quality digital emojis that are designed to let your personality shine through every message you send.</Type.Text>
 
         </div>
-        <CreateRequestFormModal onRequestCreated={handleRequestCreated} />
+       
         {/* <BottomNavigationBar setIsModalOpen={setModalOpen}/> */}
       </div>
     </>

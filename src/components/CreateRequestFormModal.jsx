@@ -7,6 +7,8 @@ import { TextField } from "@mui/material";
 import axios from "../../axios-config";
 import { toast } from "react-toastify";
 import BottomNavigationBar from "./BottomNavigation";
+import { useNavigate } from "react-router-dom";
+import SecondBanner from "./SecondBanner";
 
 const style = {
   color: "black",
@@ -19,7 +21,8 @@ const style = {
   p: 4,
 };
 
-export default function CreateRequestFormModal({ onRequestCreated}) {
+export default function CreateRequestFormModal({ onRequestCreated }) {
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const [billNumber, setBillNumber] = useState("");
@@ -58,6 +61,7 @@ export default function CreateRequestFormModal({ onRequestCreated}) {
           setBillScreenshot(null);
           setBillAmount("");
           handleClose();
+          navigate('/spin');
         } else {
           console.error("Error:", res.data);
           setError("An error occurred while saving the request.");
@@ -102,7 +106,8 @@ export default function CreateRequestFormModal({ onRequestCreated}) {
       >
         Get New Voucher
       </Button> */}
-      <BottomNavigationBar middleButton={()=>handleOpen()} />
+      <SecondBanner onClick={handleOpen} />
+      {/* <BottomNavigationBar middleButton={()=>handleOpen()} /> */}
       <Modal
         open={open}
         onClose={handleClose}
