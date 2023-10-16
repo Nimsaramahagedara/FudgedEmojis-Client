@@ -150,7 +150,7 @@ const UserDashboard = () => {
               <Type.Text italic>"For a limited time, we're offering a 90% discount on our complete emoji pack. Don't miss out on this opportunity to spice up your digital conversations!"</Type.Text>
             </div>
           </Badge.Ribbon> */}
-          <Type.Text type="secondary" underline className="py-0 px-3 mt-1 bg-white rounded-t-lg p-3 shadow-lg" data-aos='fade-right'>We offer an extensive collection of 3000+ unique, high-quality digital emojis that are designed to let your personality shine through every message you send.</Type.Text>
+          <Type.Text type="secondary" underline className="py-0 px-3 mt-3 bg-white rounded-t-lg p-3 shadow-lg" data-aos='fade-right'>We offer an extensive collection of 3000+ unique, high-quality digital emojis that are designed to let your personality shine through every message you send.</Type.Text>
 
         </div>
        

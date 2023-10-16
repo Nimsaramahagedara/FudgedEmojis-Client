@@ -27,7 +27,7 @@ const Request = ({ id, status, receipt, name, date,image }) => {
       bodyStyle={{
         padding:'0'
       }}
-      className="bg-gradient-to-r from-sky-600 to-sky-700  shadow-2xl"
+      className="bg-gradient-to-tl from-purple-950 to-violet-950  shadow-2xl"
     >
       {/**bg-gradient-to-r from-sky-500 to-sky-800 */}
       <div className="flex items-center">
@@ -62,12 +62,11 @@ const Request = ({ id, status, receipt, name, date,image }) => {
          
         ) : status === 4 ? (
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <p style={{ color: "green", fontWeight:'600' }} className="bg-cyan-500">Approved 😃</p>
-            
+            <p style={{ fontWeight:'600' }} className="mt-1 text-green-500">Approved 😃</p>
           </div>
         ) : null}
         <br/>
-        <Typography.Text type="secondary" className="mb-0">
+        <Typography.Text type="secondary" className="mb-0" style={{color:'white'}}>
           {formattedDate}
         </Typography.Text>
       </div>
