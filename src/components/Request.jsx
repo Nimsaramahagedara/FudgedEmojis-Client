@@ -62,7 +62,7 @@ const Request = ({ id, status, receipt, name, date,image }) => {
          
         ) : status === 4 ? (
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <p style={{ color: "green" }}>Approved 😃</p>
+            <p style={{ color: "green", fontWeight:'600' }} className="bg-cyan-500">Approved 😃</p>
             
           </div>
         ) : null}

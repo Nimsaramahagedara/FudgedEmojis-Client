@@ -13,6 +13,7 @@ import './Home.css';
 import { CloudUploadOutlined, DollarCircleOutlined, RedoOutlined, ShopOutlined } from "@ant-design/icons";
 import SecondBanner from "../components/SecondBanner";
 const UserDashboard = () => {
+  const currentYear = new Date().getFullYear();
   const [shouldRefresh, setShouldRefresh] = useState(false);
   const [user, setUser] = useState('')
   const [isOpen, setIsOpen] = useState(false)
@@ -102,7 +103,7 @@ const UserDashboard = () => {
           <CreateRequestFormModal onRequestCreated={handleRequestCreated} />
           <br />
           <div className="howto">
-            <Type.Title level={5} className='text-white' style={{color:'white'}}>How to ?</Type.Title>
+            {/* <Type.Title level={5} className='text-white' style={{color:'white'}}>How to ?</Type.Title> */}
             {
               howtoContent.map((element,index)=>{
                 return <HowToBox props={element}  key={index}/>
@@ -154,6 +155,7 @@ const UserDashboard = () => {
         </div>
        
         {/* <BottomNavigationBar setIsModalOpen={setModalOpen}/> */}
+        <footer className="p-4 text-center" >All Right Reserved by FudgedEmojis {currentYear}</footer>
       </div>
     </>
   );
