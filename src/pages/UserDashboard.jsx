@@ -38,7 +38,6 @@ const UserDashboard = () => {
       .get(`/request/spinning?email=${email}`)
       .then((res) => {
         setRequests(res.data);
-
         setShouldRefresh(false);
       })
       .catch((err) => {

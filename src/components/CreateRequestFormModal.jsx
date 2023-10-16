@@ -54,6 +54,7 @@ export default function CreateRequestFormModal({ onRequestCreated }) {
         setConfirmLoading(false);
 
         if (res.data) {
+          console.log(res.data)
           toast.success("Successfully saved request");
           onRequestCreated();
           // Reset the form
@@ -61,7 +62,8 @@ export default function CreateRequestFormModal({ onRequestCreated }) {
           setBillScreenshot(null);
           setBillAmount("");
           handleClose();
-          navigate('/spin');
+          navigate(`/spin?requestId=${res.data.data._id}`);
+          // navigate('/spin');
         } else {
           console.error("Error:", res.data);
           setError("An error occurred while saving the request.");

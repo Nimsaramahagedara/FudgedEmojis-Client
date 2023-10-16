@@ -10,7 +10,8 @@ const Request = ({ id, status, receipt, name, date,image }) => {
   const formattedDate = moment(date).format("DD-MMM-YYYY, h-MM a");
 
   const handleSpinClick = (id) => {
-    navigate(`/spin?id=${id}`);
+    let requestId = id;
+    navigate(`/spin?requestId=${requestId}`);
   };
 
   return (
@@ -47,12 +48,9 @@ const Request = ({ id, status, receipt, name, date,image }) => {
       <div style={{ flex: 1 }}>
         <Typography.Text className="text-white"><b>Bill No: </b>{receipt}</Typography.Text><br/>
         {/* User Name: {name} */}
-        {status === 0 ? (
-          <Typography.Text className="text-red-500">Under Review 😇</Typography.Text>
-        ) : status === 1 ? (
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <p style={{ color: "green" }}>Approved 😃</p>
-            <Button
+        {status === 1 ? (
+          // <Typography.Text className="text-red-500">Under Review 😇</Typography.Text>
+          <Button
               type="primary"
               onClick={() => handleSpinClick(id)}
               style={{
@@ -61,6 +59,11 @@ const Request = ({ id, status, receipt, name, date,image }) => {
             >
               Spin Now
             </Button>
+         
+        ) : status === 4 ? (
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <p style={{ color: "green" }}>Approved 😃</p>
+            
           </div>
         ) : null}
         <br/>

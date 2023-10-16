@@ -35,6 +35,7 @@ function NewSpin() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const id = queryParams.get("id");
+  const requestId = queryParams.get("requestId");
   const [value, setValue] = useState(0);
   const [chances, setChances] = useState(1);
   // const segments = [
@@ -123,7 +124,7 @@ function NewSpin() {
     };
 
     axios
-      .put(`/request/addresult/${id}`, data)
+      .put(`/request/addresult/${requestId}`, data)
       .then((response) => {
 
         navigate("/");
